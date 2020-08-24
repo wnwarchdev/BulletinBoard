@@ -1,0 +1,9 @@
+{
+  "name": "BulletinBoard",
+  "version": "1.0.0",
+  "description": "frontend and backend study",
+  "main": "index.js",
+  "repository": "git@github.com:wnwarchdev/BulletinBoard.git",
+  "author": "Wojtek Nowak <billnewmann@gmail.com>",
+  "license": "MIT"
+}
