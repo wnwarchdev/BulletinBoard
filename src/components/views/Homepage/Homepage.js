@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Container from '@material-ui/core/Container';
 
 import clsx from 'clsx';
 
@@ -10,7 +11,10 @@ import styles from './Homepage.module.scss';
 
 const Component = ({className, children}) => (
   <div className={clsx(className, styles.root)}>
-    <h2>Homepage</h2>
+    <Container className={clsx(className, styles.hero)} maxWidth="sm">
+      <h1>Welcome to Corkboard!</h1>
+      <h4>Gather attention of your local community!<br/>Pin anything from sales, item exchange, job or tutoring offers...<br/>See what your neighbours are posting:</h4>
+    </Container>
     {children}
   </div>
 );

@@ -1,5 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faThumbtack } from '@fortawesome/free-solid-svg-icons';
+
 
 import clsx from 'clsx';
 
@@ -10,7 +15,14 @@ import styles from './Header.module.scss';
 
 const Component = ({className, children}) => (
   <div className={clsx(className, styles.root)}>
-    <h2>Header</h2>
+    
+    <Button className={clsx(styles.logo)} component={NavLink} exact to={`${process.env.PUBLIC_URL}/`} activeClassName='active'> <FontAwesomeIcon icon={faThumbtack} />_CORKBOARD.IO</Button>
+    <div>
+      <Button className={clsx(styles.link)} component={NavLink} exact to={`${process.env.PUBLIC_URL}/`} activeClassName='active'>LOG IN</Button>
+      <Button className={clsx(styles.link)} component={NavLink} exact to={`${process.env.PUBLIC_URL}/`} activeClassName='active'>MY POSTS</Button>
+      <Button className={clsx(styles.link)} component={NavLink} exact to={`${process.env.PUBLIC_URL}/`} activeClassName='active'>LOG OUT</Button>
+    </div>
+
     {children}
   </div>
 );

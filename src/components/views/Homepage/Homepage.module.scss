@@ -1,4 +1,13 @@
 @import '../../../styles/settings.scss';
 
-// .root {
-// }
+.root {
+    text-align:center;
+ }
+
+ .hero {
+    margin-top: 50px;
+    background-color: rgb(255, 230, 0);
+    padding: 10px;
+    transform: rotate(2deg);
+    box-shadow: 1px 1px 5px black;
+ }
