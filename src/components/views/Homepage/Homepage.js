@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Container from '@material-ui/core/Container';
+import Button from '@material-ui/core/Button';
+import { NavLink } from 'react-router-dom';
 
 import clsx from 'clsx';
 
@@ -11,10 +13,13 @@ import styles from './Homepage.module.scss';
 
 const Component = ({className, children}) => (
   <div className={clsx(className, styles.root)}>
+
     <Container className={clsx(className, styles.hero)} maxWidth="sm">
+      <Button className={clsx(className, styles.login)} component={NavLink} exact to={`${process.env.PUBLIC_URL}/`} activeClassName='active'><h3>LOG IN</h3></Button>
       <h1>Welcome to Corkboard!</h1>
       <h4>Gather attention of your local community!<br/>Pin anything from sales, item exchange, job or tutoring offers...<br/>See what your neighbours are posting:</h4>
     </Container>
+
     {children}
   </div>
 );
