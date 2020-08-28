@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Container from '@material-ui/core/Container';
+import Button from '@material-ui/core/Button';
 
 import clsx from 'clsx';
 
@@ -10,7 +12,11 @@ import styles from './NotFound.module.scss';
 
 const Component = ({className, children}) => (
   <div className={clsx(className, styles.root)}>
-    <h2>NotFound</h2>
+    <Container className={clsx(className, styles.hero)} maxWidth="sm">
+      <Button className={clsx(className, styles.login)} activeClassName='active'><h3>404</h3></Button>
+      <h1>Sacre bleu! Not found...</h1>
+      <h4>It happens to best of us!<br/>Relax, take deep breath, clear your mind...<br/>This is just the way things are.</h4>
+    </Container>
     {children}
   </div>
 );

@@ -1,4 +1,31 @@
 @import '../../../styles/settings.scss';
 
-// .root {
-// }
+.root {
+    text-align:center;
+ }
+
+ .hero {
+    margin-top: 60px;
+    background-color: rgb(255, 230, 0);
+    padding: 10px;
+    transform: rotate(-1deg);
+    box-shadow: 1px 1px 5px black;
+    position: relative;
+ }
+
+
+ .login{
+   border: 2px solid black;
+   background-color: rgb(255, 94, 0);
+   border-radius: 50%;
+   width:80px;
+   position: absolute;
+   box-shadow: 1px 1px 5px black;
+   transform: translateX(-50%);
+   top:-50px;
+   &:hover {
+      box-shadow: 1px 1px 10px black;
+      background-color: rgb(148, 241, 42);
+   }
+
+}
