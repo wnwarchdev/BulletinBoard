@@ -1,4 +1,22 @@
 @import '../../../styles/settings.scss';
 
-// .root {
-// }
+.root {
+    text-align:left;
+    display: flex;
+    justify-content: center;
+ }
+
+ .card {
+    margin-top: 60px;
+    width: 100%;
+    max-width: 500px;
+    background-color: rgb(255, 230, 0);
+    padding: 10px;
+    box-shadow: 1px 1px 5px black;
+    position: relative;
+ }
+
+ .text {
+    border: 1px dashed black;
+    padding: 5px;
+ }

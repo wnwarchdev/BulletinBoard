@@ -1,24 +1,35 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
+import Card from '@material-ui/core/Card';
 
-import clsx from 'clsx';
-
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
 import styles from './Post.module.scss';
 
-const Component = ({className, children}) => (
-  <div className={clsx(className, styles.root)}>
-    <h2>Post</h2>
-    {children}
-  </div>
-);
+class Component extends React.Component {
 
-Component.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-};
+  render() {
+    //const { post } = this.props;
+    //const { title, text, price, email, phone, author, created } = post;
+    return (
+      <div className={styles.root}>
+        <Card className={styles.card}>
+          <p>Created on: //created</p>
+          <h2>/title</h2>
+          <p>Posted by: //author</p>
+
+          <p className={styles.text}>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+          <p>Price: //price</p>
+          <p>Phone: //phone</p>
+          <p>Contact: //email</p>
+        </Card>
+      </div>
+    );
+  }
+}
+
+//Component.propTypes = {
+//  post: PropTypes.object,
+//};
 
 // const mapStateToProps = state => ({
 //   someProp: reduxSelector(state),
