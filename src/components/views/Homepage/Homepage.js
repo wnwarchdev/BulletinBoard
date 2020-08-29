@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
 import { NavLink } from 'react-router-dom';
+import { PostIt } from '../../common/PostIt/PostIt';
 
 import clsx from 'clsx';
 
@@ -18,6 +19,14 @@ const Component = ({className, children}) => (
       <Button className={clsx(className, styles.login)} component={NavLink} exact to={`${process.env.PUBLIC_URL}/`} activeClassName='active'><h3>LOG IN</h3></Button>
       <h1>Welcome to Corkboard!</h1>
       <h4>Gather attention of your local community!<br/>Pin anything from sales, item exchange, job or tutoring offers...<br/>See what your neighbours are posting:</h4>
+    </Container>
+
+    <Container className={clsx(className, styles.corkboard)} maxWidth="md">
+      <PostIt />
+      <PostIt />
+      <PostIt />
+      <PostIt />
+      <PostIt />
     </Container>
 
     {children}

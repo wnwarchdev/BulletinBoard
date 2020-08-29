@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
+import { NavLink } from 'react-router-dom';
 
 import clsx from 'clsx';
 
@@ -13,7 +14,7 @@ import styles from './NotFound.module.scss';
 const Component = ({className, children}) => (
   <div className={clsx(className, styles.root)}>
     <Container className={clsx(className, styles.hero)} maxWidth="sm">
-      <Button className={clsx(className, styles.login)} activeClassName='active'><h3>404</h3></Button>
+      <Button className={clsx(className, styles.login)} component={NavLink} exact to={`${process.env.PUBLIC_URL}/`} activeClassName='active'><h3>404</h3></Button>
       <h1>Sacre bleu! Not found...</h1>
       <h4>It happens to best of us!<br/>Relax, take deep breath, clear your mind...<br/>This is just the way things are.</h4>
     </Container>
