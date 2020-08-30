@@ -6,15 +6,17 @@ import Card from '@material-ui/core/Card';
 
 import styles from './PostIt.module.scss';
 
-const Component = ({ post }) => {
-  //const { title, photo, id, price } = post;
-  
+import { connect } from 'react-redux';
+import { getAll } from '../../../redux/postsRedux';
+
+const Component = ({ title, created, author, id }) => {
+
   return (
-    <Link to={`${process.env.PUBLIC_URL}/post/1`} className={styles.root}>
+    <Link to={`${process.env.PUBLIC_URL}/post/${id}`} className={styles.root}>
       <Card className={styles.card}>
-        <p>/created</p>
-        <h2>/title</h2>
-        <p>By: //author</p>
+        <p>{created}</p>
+        <h2>{title}</h2>
+        <p>By: {author}</p>
       </Card>
     </Link>
   );
@@ -22,11 +24,21 @@ const Component = ({ post }) => {
 
 
 Component.propTypes = {
-  post: PropTypes.object,
+  title: PropTypes.string,
+  author: PropTypes.string,
+  created: PropTypes.string,
+  id: PropTypes.any,
 };
+
+const mapStateToProps = state => ({
+  post: getAll(state),
+});
+
+const Container = connect(mapStateToProps)(Component);
 
 
 
 export {
-  Component as PostIt,
+  Container as PostIt,
+  //Component as PostIt,
 };

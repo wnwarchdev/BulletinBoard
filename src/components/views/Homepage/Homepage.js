@@ -4,15 +4,16 @@ import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
 import { NavLink } from 'react-router-dom';
 import { PostIt } from '../../common/PostIt/PostIt';
+import { Link } from 'react-router-dom';
 
 import clsx from 'clsx';
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
+import { connect } from 'react-redux';
+import { getAll } from '../../../redux/postsRedux.js';
 
 import styles from './Homepage.module.scss';
 
-const Component = ({className, children}) => (
+const Component = ({className, children, posts}) => (
   <div className={clsx(className, styles.root)}>
 
     <Container className={clsx(className, styles.hero)} maxWidth="sm">
@@ -22,11 +23,12 @@ const Component = ({className, children}) => (
     </Container>
 
     <Container className={clsx(className, styles.corkboard)} maxWidth="md">
-      <PostIt />
-      <PostIt />
-      <PostIt />
-      <PostIt />
-      <PostIt />
+
+      {posts.map((post) => (
+        <div key={post.id} to={`/post/${post.id}`} ><br/>
+          <PostIt {...post}/>
+        </div>
+      ))}
     </Container>
 
     {children}
@@ -36,20 +38,21 @@ const Component = ({className, children}) => (
 Component.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  posts: PropTypes.object,
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
+const mapStateToProps = (state) => ({
+  posts: getAll(state),
+});
 
 // const mapDispatchToProps = dispatch => ({
 //   someAction: arg => dispatch(reduxActionCreator(arg)),
 // });
 
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
+const HomepageContainer = connect(mapStateToProps)(Component);
 
 export {
-  Component as Homepage,
-  // Container as Homepage,
+  //Component as Homepage,
+  HomepageContainer as Homepage,
   Component as HomepageComponent,
 };
