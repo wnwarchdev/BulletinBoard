@@ -56,11 +56,11 @@ export const initialState = {
         email: 'fbrzio@gmail.com',
         photo: '',
       },
-      
     ],
     loading: {
       active: false,
       error: false,
     },
   },
+  logged: true, //user logged or not?
 };
