@@ -62,5 +62,9 @@ export const initialState = {
       error: false,
     },
   },
-  logged: true, //user logged or not?
+  //logged: true, //user logged or not?
+  user: {
+    id: 1,
+    logged: true,
+  },
 };

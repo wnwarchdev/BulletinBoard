@@ -1,10 +1,7 @@
 @import '../../../styles/settings.scss';
 
  .root {
-    background:
-    radial-gradient(rgb(207, 207, 207) 15%, transparent 16%) 8px 8px,
-    radial-gradient(rgba(204, 204, 204, 0.1) 15%, transparent 20%) 8px 9px;
-    background-color:rgb(241, 241, 241);
-    background-size:16px 16px;
-    height:100vh;
+   background-color: rgb(241, 241, 241);
+   background-size: cover;
+   background-attachment: fixed;
  }

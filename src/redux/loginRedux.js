@@ -1,27 +1,34 @@
 /* selectors */
-export const logged = (state) => state.logged;
+export const getUser = ({ user }) => user;
 
 /* action name creator */
-const reducerName = 'toggle_login';
-const createActionName = name => `app/${reducerName}/${name}`;
+const reducerName = 'user';
+const createActionName = (name) => `app/${reducerName}/${name}`;
 
 /* action types */
-const TOGGLE_LOGIN = createActionName('TOGGLE_LOGIN');
+const LOGIN = createActionName('LOGIN');
+const LOGOUT = createActionName('LOGOUT');
 
 /* action creators */
-export const toggle_login = payload => ({ payload, type: TOGGLE_LOGIN });
+export const login = (payload) => ({ payload, type: LOGIN });
+export const logout = (payload) => ({ payload, type: LOGOUT });
 
 /* reducer */
-export default function reducer(statePart = [], action = {}) {
+export const reducer = (statePart = [], action = {}) => {
   switch (action.type) {
-    case TOGGLE_LOGIN:
-      switch (action.payload) {
-        case 'login': return true;
-        case 'logout': return false;
-        default:
-          return statePart;
-      }
+    case LOGIN: {
+      return {
+        ...statePart,
+        logged: true,
+      };
+    }
+    case LOGOUT: {
+      return {
+        ...statePart,
+        logged: false,
+      };
+    }
     default:
       return statePart;
   }
-}
+};

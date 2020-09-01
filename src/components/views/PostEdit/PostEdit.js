@@ -9,9 +9,9 @@ import { NotFound } from '../NotFound/NotFound';
 import styles from './PostEdit.module.scss';
 
 import { connect } from 'react-redux';
-import { getAll } from '../../../redux/postsRedux';
 import { getPost } from '../../../redux/postsRedux';
 import { addPost } from '../../../redux/postsRedux.js';
+import { getUser } from '../../../redux/loginRedux.js';
 
 
 
@@ -19,7 +19,6 @@ class Component extends React.Component {
 
   componentDidMount() {
     this.setState({ created: 'sample-date' }); //add datepicker
-    this.setState({ id: 'sample-id' }); //add uuidv4
   }
 
   state = {
@@ -41,12 +40,11 @@ class Component extends React.Component {
 
 
   render() {
-    const { logged } = this.props;
-    //console.log (this.props.logged);
-    if (logged === true) {
+    const { user } = this.props;
+    console.log ('here: ',this.props.user.logged);
+    if (user.logged === true) {
       return (
         <div className={styles.root}>
-          
           <Card className={styles.card}>
             <Button className={styles.goback} component={NavLink} exact to={`${process.env.PUBLIC_URL}/`} ><h3>&#8617;</h3></Button>
             <p>Update and save:</p>
@@ -60,9 +58,7 @@ class Component extends React.Component {
             <TextField required id="link" name="link" label="Photo link" fullWidth value={this.state.photo}  onChange={(e) => this.setState({ photo: e.target.value })}/>
             <Button className={styles.submit} onClick={() => this.submit()}><h3>↺</h3></Button>
           </Card>
-
         </div>
-        
       );
     } else {
       return <NotFound />;
@@ -75,13 +71,12 @@ class Component extends React.Component {
 Component.propTypes = {
   addPost: PropTypes.any,
   post: PropTypes.any,
-  logged: PropTypes.bool,
+  user: PropTypes.any,
 };
 
 const mapStateToProps = (state, props) => ({
   post: getPost(state, props.match.params.id),
-  posts: getAll(state),
-  logged: state.logged,
+  user: getUser(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

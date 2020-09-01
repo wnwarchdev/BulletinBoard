@@ -9,51 +9,53 @@ import { faThumbtack } from '@fortawesome/free-solid-svg-icons';
 import clsx from 'clsx';
 
 import { connect } from 'react-redux';
-import { toggle_login } from '../../../redux/loginRedux';
+import { getUser, login, logout } from '../../../redux/loginRedux';
 
 import styles from './Header.module.scss';
 
-const loginButton = (event) => {
-  toggle_login('login');
-  console.log('login pressed');
-  console.log(toggle_login('login'));
+
+const Component = ({className, user, login, logout }) => {
+
+  const loginButton = (event) => {
+    event.preventDefault();
+    user.logged ? logout(user) : login(user);
+    console.log('clicked' , user.logged);
+  };
+
+  return (
+    <div className={clsx(className, styles.root)}>
+      
+      <Button className={clsx(styles.logo)} component={NavLink} exact to={`${process.env.PUBLIC_URL}/`} activeClassName='active'> <FontAwesomeIcon icon={faThumbtack} />_CORKBOARD.IO</Button>
+      <div>
+        {user.logged ? 
+          <div>
+            <Button className={clsx(styles.link)} component={NavLink} exact to={`${process.env.PUBLIC_URL}/`} activeClassName='active'>MY POSTS</Button>
+            <Button className={clsx(styles.link)} component={NavLink} exact to={`${process.env.PUBLIC_URL}/`} activeClassName='active' onClick={loginButton} >LOG OUT</Button>
+          </div>
+          :
+          <Button className={clsx(styles.link)} component={NavLink} exact to={`${process.env.PUBLIC_URL}/`} activeClassName='active' onClick={loginButton} >LOG IN</Button>
+        }
+        
+        
+      </div>
+    </div>
+  );
 };
 
-const Component = ({className, children, logged}) => (
-
-  <div className={clsx(className, styles.root)}>
-    {console.log('logged: ', logged)}
-    
-    <Button className={clsx(styles.logo)} component={NavLink} exact to={`${process.env.PUBLIC_URL}/`} activeClassName='active'> <FontAwesomeIcon icon={faThumbtack} />_CORKBOARD.IO</Button>
-    <div>
-      {logged ? 
-        <div>
-          <Button className={clsx(styles.link)} component={NavLink} exact to={`${process.env.PUBLIC_URL}/`} activeClassName='active'>MY POSTS</Button>
-          <Button className={clsx(styles.link)} component={NavLink} exact to={`${process.env.PUBLIC_URL}/`} activeClassName='active'>LOG OUT</Button>
-        </div>
-        :
-        <Button className={clsx(styles.link)} component={NavLink} exact to={`${process.env.PUBLIC_URL}/`} activeClassName='active' onClick={() => { loginButton(); }}>LOG IN</Button>
-      }
-      
-      
-    </div>
-
-    {children}
-  </div>
-);
-
 Component.propTypes = {
-  children: PropTypes.node,
   className: PropTypes.string,
-  logged: PropTypes.bool,
+  user: PropTypes.object,
+  login: PropTypes.func,
+  logout: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
-  logged: state.logged,
+  user: getUser(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-  toggle_login: log => dispatch(toggle_login(log)),
+  login: (payload) => dispatch(login(payload)),
+  logout: (payload) => dispatch(logout(payload)),
 });
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
