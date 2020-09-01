@@ -32,6 +32,7 @@ class Component extends React.Component {
           <p>Price: ${price}</p>
           <p>Phone: {phone}</p>
           <p>Contact: {email}</p>
+          <Button className={styles.edit} component={NavLink} to={`/post/${post.id}/edit`} activeClassName='active'><h3>↝</h3></Button>
         </Card>
 
       </div>

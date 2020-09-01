@@ -10,7 +10,7 @@ import styles from './PostEdit.module.scss';
 
 import { connect } from 'react-redux';
 import { getPost } from '../../../redux/postsRedux';
-import { addPost } from '../../../redux/postsRedux.js';
+import { editPost } from '../../../redux/postsRedux.js';
 import { getUser } from '../../../redux/loginRedux.js';
 
 
@@ -19,6 +19,7 @@ class Component extends React.Component {
 
   componentDidMount() {
     this.setState({ created: 'sample-date' }); //add datepicker
+    //this.setState({ id: 'sample-id' }); //add uuidv4
   }
 
   state = {
@@ -35,7 +36,7 @@ class Component extends React.Component {
 
   submit = () => {
     console.log(this.state);
-    this.props.addPost(this.state);
+    this.props.editPost(this.state);
   };
 
 
@@ -56,7 +57,7 @@ class Component extends React.Component {
             <TextField id="phone" name="phone" label="Phone number" fullWidth value={this.state.phone}  onChange={(e) => this.setState({ phone: e.target.value })}/>
             <TextField required id="price" name="price" label="Price" fullWidth value={this.state.price}  onChange={(e) => this.setState({ price: e.target.value })}/>
             <TextField required id="link" name="link" label="Photo link" fullWidth value={this.state.photo}  onChange={(e) => this.setState({ photo: e.target.value })}/>
-            <Button className={styles.submit} onClick={() => this.submit()}><h3>↺</h3></Button>
+            <Button className={styles.submit} onClick={() => this.submit() } component={NavLink} exact to={`${process.env.PUBLIC_URL}/`}><h3>↺</h3></Button>
           </Card>
         </div>
       );
@@ -69,7 +70,7 @@ class Component extends React.Component {
 
 
 Component.propTypes = {
-  addPost: PropTypes.any,
+  editPost: PropTypes.any,
   post: PropTypes.any,
   user: PropTypes.any,
 };
@@ -80,7 +81,7 @@ const mapStateToProps = (state, props) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  addPost: (payload) => dispatch(addPost(payload)),
+  editPost: (payload) => dispatch(editPost(payload)),
 });
 
 

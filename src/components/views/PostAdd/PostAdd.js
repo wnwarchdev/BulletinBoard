@@ -56,7 +56,7 @@ class Component extends React.Component {
             <TextField id="phone" name="phone" label="Phone number" fullWidth value={this.state.phone}  onChange={(e) => this.setState({ phone: e.target.value })}/>
             <TextField required id="price" name="price" label="Price" fullWidth value={this.state.price}  onChange={(e) => this.setState({ price: e.target.value })}/>
             <TextField required id="link" name="link" label="Photo link" fullWidth value={this.state.photo}  onChange={(e) => this.setState({ photo: e.target.value })}/>
-            <Button className={styles.submit} onClick={() => this.submit()}><h3>+</h3></Button>
+            <Button className={styles.submit} onClick={() => this.submit()} component={NavLink} exact to={`${process.env.PUBLIC_URL}/`}><h3>+</h3></Button>
           </Card>
         </div>
       );
