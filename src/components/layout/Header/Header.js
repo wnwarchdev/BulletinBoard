@@ -29,7 +29,8 @@ const Component = ({className, user, login, logout }) => {
       <div>
         {user.logged ? 
           <div>
-            <Button className={clsx(styles.link)} component={NavLink} exact to={`${process.env.PUBLIC_URL}/`} activeClassName='active'>MY POSTS</Button>
+            <Button className={clsx(styles.link)} component={NavLink} to={`${process.env.PUBLIC_URL}/MyPosts`} activeClassName='active'>MY POSTS</Button>
+            <Button className={clsx(styles.link)} component={NavLink} exact to={`${process.env.PUBLIC_URL}/`} activeClassName='active' >MAIN PAGE</Button>
             <Button className={clsx(styles.link)} component={NavLink} exact to={`${process.env.PUBLIC_URL}/`} activeClassName='active' onClick={loginButton} >LOG OUT</Button>
           </div>
           :

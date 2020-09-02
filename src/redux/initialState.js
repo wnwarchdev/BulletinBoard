@@ -11,6 +11,7 @@ export const initialState = {
         phone: '111-111-111',
         email: 'amanda@doe.com',
         photo: '',
+        userIdStamp: 'abc',
       },
       {
         id: '2',
@@ -22,6 +23,7 @@ export const initialState = {
         phone: '222-222-222',
         email: 'andy@candy.com',
         photo: '',
+        userIdStamp: 'xyz',
       },
       {
         id: '3',
@@ -33,6 +35,7 @@ export const initialState = {
         phone: '333-333-333',
         email: 'esme@gmail.com',
         photo: '',
+        userIdStamp: 'abc',
       },
       {
         id: '4',
@@ -44,6 +47,7 @@ export const initialState = {
         phone: '444-444-444',
         email: '',
         photo: '',
+        userIdStamp: 'def',
       },
       {
         id: '5',
@@ -55,6 +59,7 @@ export const initialState = {
         phone: '555-555-555',
         email: 'fbrzio@gmail.com',
         photo: '',
+        userIdStamp: 'abc',
       },
     ],
     loading: {
@@ -64,7 +69,8 @@ export const initialState = {
   },
   //logged: true, //user logged or not?
   user: {
-    id: 1,
+    userId: 'abc',
     logged: true,
+    admin: false,
   },
 };
