@@ -17,7 +17,8 @@ import { getUser } from '../../../redux/loginRedux.js';
 class Component extends React.Component {
 
   componentDidMount() {
-    this.setState({ created: 'sample-date' }); //add datepicker
+    const creationDate = new Date();
+    this.setState({ created: creationDate.toISOString().slice(0, 10) }); //add datepicker
     this.setState({ id: '6' }); //add uuidv4
   }
 
