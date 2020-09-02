@@ -12,6 +12,7 @@ export const initialState = {
         email: 'amanda@doe.com',
         photo: '',
         userIdStamp: 'abc',
+        status: 'published',
       },
       {
         id: '2',
@@ -24,6 +25,7 @@ export const initialState = {
         email: 'andy@candy.com',
         photo: '',
         userIdStamp: 'xyz',
+        status: 'published',
       },
       {
         id: '3',
@@ -36,6 +38,7 @@ export const initialState = {
         email: 'esme@gmail.com',
         photo: '',
         userIdStamp: 'abc',
+        status: 'published',
       },
       {
         id: '4',
@@ -48,6 +51,7 @@ export const initialState = {
         email: '',
         photo: '',
         userIdStamp: 'def',
+        status: 'published',
       },
       {
         id: '5',
@@ -60,6 +64,7 @@ export const initialState = {
         email: 'fbrzio@gmail.com',
         photo: '',
         userIdStamp: 'abc',
+        status: 'published',
       },
     ],
     loading: {

@@ -33,6 +33,8 @@ class Component extends React.Component {
     phone: '',
     email: '',
     photo: '',
+    userIdStamp: this.props.user.userId,
+    status: 'published',
   }
 
   submit = () => {
