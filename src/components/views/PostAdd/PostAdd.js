@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import { NavLink } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import { NotFound } from '../NotFound/NotFound';
+import { v4 as uuidv4 } from 'uuid';
 
 import styles from './PostAdd.module.scss';
 
@@ -19,7 +20,7 @@ class Component extends React.Component {
   componentDidMount() {
     const creationDate = new Date();
     this.setState({ created: creationDate.toISOString().slice(0, 10) }); //add datepicker
-    this.setState({ id: '6' }); //add uuidv4
+    this.setState({ id: uuidv4().slice(0, 8) }); //add uuidv4
   }
 
   state = {
