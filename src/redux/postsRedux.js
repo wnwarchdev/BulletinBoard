@@ -1,3 +1,6 @@
+import Axios from 'axios';
+import { api } from '../settings';
+
 /* selectors */
 export const getAll = ({posts}) => posts.data;
 
@@ -25,6 +28,22 @@ export const addPost = (payload) => ({ payload, type: ADD_POST });
 export const editPost = (payload) => ({ payload, type: EDIT_POST });
 
 /* thunk creators */
+export const fetchPublished = () => {
+  return (dispatch, getState) => {
+    dispatch(fetchStarted());
+    const state = getState();
+    if (state.posts.data.length === 0 && state.posts.loading.active) {
+      Axios
+        .get(`${api.url}/${api.posts}`)
+        .then(res => {
+          dispatch(fetchSuccess(res.data));
+        })
+        .catch(err => {
+          dispatch(fetchError(err.message || true));
+        });
+    }
+  };
+};
 
 /* reducer */
 export const reducer = (statePart = [], action = {}) => {
