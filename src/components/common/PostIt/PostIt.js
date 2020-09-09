@@ -9,10 +9,10 @@ import styles from './PostIt.module.scss';
 import { connect } from 'react-redux';
 import { getAll } from '../../../redux/postsRedux';
 
-const Component = ({ title, created, author, id }) => {
+const Component = ({ title, created, author, _id }) => {
 
   return (
-    <Link to={`${process.env.PUBLIC_URL}/post/${id}`} className={styles.root}>
+    <Link to={`${process.env.PUBLIC_URL}/post/${_id}`} className={styles.root}>
       <Card className={styles.card}>
         <p>{created}</p>
         <h2>{title}</h2>
@@ -27,7 +27,7 @@ Component.propTypes = {
   title: PropTypes.string,
   author: PropTypes.string,
   created: PropTypes.string,
-  id: PropTypes.any,
+  _id: PropTypes.any,
 };
 
 const mapStateToProps = state => ({

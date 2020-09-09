@@ -41,7 +41,7 @@ class Component extends React.Component {
         <Container className={clsx(className, styles.corkboard)} maxWidth="md">
 
           {posts.map((post) => (
-            <div key={post.id} to={`/post/${post.id}`} ><br/>
+            <div key={post._id} to={`/post/${post._id}`} ><br/>
               <PostIt {...post}/>
             </div>
           ))}

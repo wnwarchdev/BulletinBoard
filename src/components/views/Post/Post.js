@@ -22,7 +22,7 @@ class Component extends React.Component {
     return (
       <div className={styles.root}>
         
-        <Card className={styles.card} key={post.id}>
+        <Card className={styles.card} key={post._id}>
           <Button className={styles.goback} component={NavLink} exact to={`${process.env.PUBLIC_URL}/`} activeClassName='active'><h3>&#8617;</h3></Button>
           <p>{created}</p>
           <h2>{title}</h2>
@@ -32,7 +32,7 @@ class Component extends React.Component {
           <p>Price: ${price}</p>
           <p>Phone: {phone}</p>
           <p>Contact: {email}</p>
-          <Button className={styles.edit} component={NavLink} to={`/post/${post.id}/edit`} activeClassName='active'><h3>↝</h3></Button>
+          <Button className={styles.edit} component={NavLink} to={`/post/${post._id}/edit`} activeClassName='active'><h3>↝</h3></Button>
         </Card>
 
       </div>
