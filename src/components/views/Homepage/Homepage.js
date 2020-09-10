@@ -46,7 +46,6 @@ class Component extends React.Component {
             </div>
           ))}
         </Container>
-        {console.log('Homepage: ',user.logged)};
       </div>
     ); 
   }

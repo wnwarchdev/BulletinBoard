@@ -1,5 +1,6 @@
 export const initialState = {
   posts: {
+    currentPost: {},
     data: [
       
     ],

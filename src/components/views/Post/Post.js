@@ -8,10 +8,15 @@ import { NavLink } from 'react-router-dom';
 import styles from './Post.module.scss';
 
 import { connect } from 'react-redux';
-import { getAll } from '../../../redux/postsRedux';
-import { getPost } from '../../../redux/postsRedux';
+//import { getAll } from '../../../redux/postsRedux';
+import { getPost, fetchPost } from '../../../redux/postsRedux';
 
 class Component extends React.Component {
+
+  componentDidMount() {
+    const { match, fetchPost } = this.props;
+    fetchPost(match.params._id);
+  }
 
 
   render() {
@@ -44,17 +49,22 @@ class Component extends React.Component {
 Component.propTypes = {
   post: PropTypes.object,
   match: PropTypes.object,
+  fetchPost: PropTypes.func,
 };
 
 const mapStateToProps = (state, props) => ({
-  post: getPost(state, props.match.params.id),
-  posts: getAll(state),
+  post: getPost(state),
+  //posts: getAll(state),
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchPost: (id) => dispatch(fetchPost(id)),
 });
 
 
-const Container = connect(mapStateToProps)(Component);
+// const Container = connect(mapStateToProps)(Component);
 
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
+const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
   //Component as Post,
