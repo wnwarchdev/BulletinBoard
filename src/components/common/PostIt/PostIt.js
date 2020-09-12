@@ -14,7 +14,7 @@ const Component = ({ title, created, author, _id }) => {
   return (
     <Link to={`${process.env.PUBLIC_URL}/post/${_id}`} className={styles.root}>
       <Card className={styles.card}>
-        <p>{created}</p>
+        <p>{created.slice(0, 10)}</p>
         <h2>{title}</h2>
         <p>By: {author}</p>
       </Card>

@@ -73,6 +73,7 @@ export const postToAPI = (post) => {
   };
 };
 
+
 /* reducer */
 export const reducer = (statePart = [], action = {}) => {
   switch (action.type) {

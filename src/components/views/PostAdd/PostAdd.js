@@ -55,12 +55,12 @@ class Component extends React.Component {
           <Card className={styles.card}>
             <Button className={styles.goback} component={NavLink} exact to={`${process.env.PUBLIC_URL}/`} ><h3>&#8617;</h3></Button>
             <p>Fill your post and your data:</p>
-            <TextField required id="title" name="title" label="Title" fullWidth value={this.state.title}  onChange={(e) => this.setState({ title: e.target.value })}/>
+            <TextField required id="title" name="title" label="Title  (required)" fullWidth value={this.state.title}  onChange={(e) => this.setState({ title: e.target.value })}/>
             <br></br><br></br>
-            <TextField required id="text" name="text" label="I want to let others know..." multiline variant="outlined" rows={3} fullWidth value={this.state.text}  onChange={(e) => this.setState({ text: e.target.value })}/>
-            <TextField required id="author" name="author" label="Your name" fullWidth value={this.state.author}  onChange={(e) => this.setState({ author: e.target.value })}/>
+            <TextField required id="text" name="text" label="I want to let others know...  (required)" multiline variant="outlined" rows={3} fullWidth value={this.state.text}  onChange={(e) => this.setState({ text: e.target.value })}/>
+            <TextField required id="author" name="author" label="Your name (required) " fullWidth value={this.state.author}  onChange={(e) => this.setState({ author: e.target.value })}/>
             <TextField required id="email" name="email" label="Email address" fullWidth value={this.state.email}  onChange={(e) => this.setState({ email: e.target.value })}/>
-            <TextField id="phone" name="phone" label="Phone number" fullWidth value={this.state.phone}  onChange={(e) => this.setState({ phone: e.target.value })}/>
+            <TextField id="phone" name="phone" label="Phone number  (required)" fullWidth value={this.state.phone}  onChange={(e) => this.setState({ phone: e.target.value })}/>
             <TextField required id="price" name="price" label="Price" fullWidth value={this.state.price}  onChange={(e) => this.setState({ price: e.target.value })}/>
             <TextField required id="link" name="link" label="Photo link" fullWidth value={this.state.photo}  onChange={(e) => this.setState({ photo: e.target.value })}/>
             <Button className={styles.submit} onClick={() => this.submit()} component={NavLink} exact to={`${process.env.PUBLIC_URL}/`}><h3>+</h3></Button>
