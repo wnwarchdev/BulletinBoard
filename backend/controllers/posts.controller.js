@@ -26,3 +26,14 @@ exports.getPostById = async (req, res) => {
     res.status(500).json(err);
   }
 };
+
+exports.postPost = async (req, res) => {
+  try {
+    const newPost = new Post({ ...req.body });
+    await newPost.save();
+    res.json(newPost);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+};

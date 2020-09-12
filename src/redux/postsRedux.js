@@ -59,6 +59,20 @@ export const fetchPost = id => {
   };
 };
 
+export const postToAPI = (post) => {
+  return (dispatch, getState) => {
+    Axios
+      .post(`${api.url}/${api.posts}`, post)
+      .then(res => {
+        dispatch(addPost(res.data));
+        console.log(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+};
+
 /* reducer */
 export const reducer = (statePart = [], action = {}) => {
   switch (action.type) {

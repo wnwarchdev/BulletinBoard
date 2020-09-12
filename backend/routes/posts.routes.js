@@ -32,5 +32,6 @@ const PostController = require('../controllers/posts.controller');
 
 router.get('/posts', PostController.getPosts);
 router.get('/posts/:id', PostController.getPostById);
+router.post('/posts', PostController.postPost);
 
 module.exports = router;
